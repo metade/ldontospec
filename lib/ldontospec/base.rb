@@ -16,7 +16,7 @@ module LDOntoSpec
   class Base < StaticMatic::Base
     attr_accessor :ontology_uri, :ontology_prefix
      
-    def initialize(base_dir, configuration = Configuration.new)
+    def initialize(base_dir, configuration = StaticMatic::Configuration.new)
       super
       @templates_dir = File.join(File.dirname(__FILE__), 'templates')
       @settings_path = File.join(@base_dir, 'settings.yml')

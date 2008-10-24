@@ -13,9 +13,7 @@ if !command || !directory
 end
 
 configuration = StaticMatic::Configuration.new
-
 config_file = "#{directory}/src/configuration.rb"
-
 if File.exists?(config_file)
   config = File.read(config_file)
   eval(config)
