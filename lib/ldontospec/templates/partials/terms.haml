@@ -1,0 +1,26 @@
+%h2.classes Classes
+
+- for c in @ontology.classes
+  %div{ :id => "#{c.localname}", :class => 'specterm' }
+    %h4= name_for_resource(c)
+    %em= c.title
+    = comments_paragraphs(c)
+    %dl
+      - c.funky_properties.each do |prop, terms|
+        %dt= prop
+        - for term in terms
+          %dd= link_to_term(term)
+
+
+%h2.properties Properties
+
+- for p in @ontology.properties
+  %div{ :id => "#{p.localname}", :class => 'specterm' }
+    %h4= name_for_resource(p)
+    %em= p.title
+    = comments_paragraphs(p)
+    %dl
+      - p.funky_properties.each do |prop, terms|
+        %dt= prop
+        - for term in terms
+          %dd= link_to_term(term)

@@ -1,0 +1,8 @@
+%h1= @ontology.title
+
+- versions = {} 
+= partial('authors', :locals => { :versions => versions })
+
+= partial('namespaces')
+= partial('terms_overview')
+= partial('terms')

@@ -1,0 +1,15 @@
+%h3#ns Namespaces
+
+%p Several namespaces will be assumed to have been defined for the remainder of this document. These are as follows:
+
+%table#namespaces
+  %tr 
+    %th Prefix
+    %th Namespace
+    %th Description
+  - for namespace in @namespaces.keys.sort
+    %tr 
+      %td.ns_prefix= namespace
+      %td.ns_uri= @namespaces[namespace].uri
+      - title = @namespaces[namespace].title
+      %td.ns_name= link((title.blank? ? namespace : title), @namespaces[namespace].uri)
