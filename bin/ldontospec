@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require File.dirname(__FILE__) + '/../lib/ldontospec'
+
+command = ARGV[0]
+directory = ARGV[1]
+prefix = ARGV[2]
+uri = ARGV[3]
+
+if !command || !directory
+  puts "Usage: #{$0} <build|setup|preview> <directory> <prefix> <uri>"
+  exit
+end
+
+configuration = StaticMatic::Configuration.new
+
+config_file = "#{directory}/src/configuration.rb"
+
+if File.exists?(config_file)
+  config = File.read(config_file)
+  eval(config)
+end
+
+ldontospec = LDOntoSpec::Base.new(directory, configuration)
+ldontospec.ontology_prefix = prefix
+ldontospec.ontology_uri = uri
+ldontospec.run(command)

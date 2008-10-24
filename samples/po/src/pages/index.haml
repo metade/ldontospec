@@ -1,0 +1,56 @@
+%h1= @ontology.title
+
+- versions = {}
+- versions[:this] = @version + ', '
+- versions[:this] << link_to("#{@ontology.uri}#{@version}.shtml", "#{@ontology.uri}#{@version}.shtml")
+- versions[:this] << ' (' + link_to("rdf", "#{@ontology.uri}#{@version}.rdf") + ')'
+- versions[:latest] = link_to(@ontology.uri, @ontology.uri)
+- versions[:previous] = link_to("#{@ontology.uri}2007-11-27.html", "#{@ontology.uri}2007-11-27.html")
+= partial('authors', :locals => { :versions => versions })
+
+%div.copyright
+  %p Copyright &copy; 2007 the British Broadcasting Corporation.
+  %p <a href="http://creativecommons.org/licenses/by/3.0/"><img alt= "Creative Commons License" style="border: 0; float: right; padding: 10px;" src= "http://i.creativecommons.org/l/by/3.0/88x31.png" /></a>
+  %p This work is licensed under a <a href= "http://creativecommons.org/licenses/by/1.0/">Creative Commons Attribution License</a>. This copyright applies to the <em>Programmes Ontology</em> and accompanying documentation in RDF. This ontology uses W3C's <a href="http://www.w3.org/RDF/">RDF</a> technology, an open Web standard that can be freely used by anyone.
+
+%h2 Introduction
+
+%p This ontology aims at providing a simple vocabulary for describing programmes. It covers brands, series (seasons), episodes, broadcast events, broadcast services, etc. Its development was funded by the <a href="http://bbc.co.uk/">BBC</a>, and is heavily grounded on previous programmes data modelling work done there.
+
+%p This documentation page is a first draft. All feedback on either the ontology or this page is welcomed! Feel free to email the authors mentioned aboved. 
+
+%p The design and layout of this ontology document is based on the <a href="http://www.musicontology.com/">Music Ontology</a> and <a href="http://xmlns.com/foaf/spec/">FOAF Vocabulary</a> specification documents, and was generated using <a href="http://code.google.com/p/ldontospec/">LD OntoSpec</a>.
+
+= partial('namespaces')
+
+%h2.model The Programme Model
+
+%p The programme model is inspired from the PIPS database schema, used at the <a href="http://bbc.co.uk/">BBC</a>. It describes how brands, series, episodes, particular versions of episodes and broadcasts interact with each other.
+
+%p By going further on, we can associate to each of these episodes a particular version (which would correspond to a <i>Manifestation</i> in <a href="http://www.frbr.org/">FRBR</a> terms). This version can then be the factor of a broadcast event, occurring on a particular service (eg. BBC One London) at a particular time.
+
+%p A simple depiction of the different modelled concepts and their interaction is the following one:
+
+%p
+  %img{ :src=>"2007-11-27.png", :alt => 'Overview of the Programmes Ontology concepts.' }
+%hr
+
+= partial('terms_overview')
+= partial('terms')
+
+%h2.references References
+
+%h3 Semantic Web Information
+%ol
+  %li <a href="http://www.w3.org/2001/sw/">W3C Semantic Web Activity</a>
+  %li <a href="http://www.w3.org/2000/10/swap/Primer.html">Primer: Getting into RDF &amp; Semantic Web using N3</a>
+%h3 Related projects
+%ol
+  %li <a href="http://bbc.co.uk/programmes">BBC /programmes</a>
+
+%h2.change_log Change Log
+
+%h3 2008-02-28
+%ul
+  %li Added Patrick Sinclair/Nicholas Humfrey as contributors
+  %li Fixed po:Serie/po:Series typo in po:episode, po:series, po:parent_series, po:position

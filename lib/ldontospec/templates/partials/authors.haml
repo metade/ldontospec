@@ -1,0 +1,14 @@
+%dl
+  %dt This Version
+  %dd= versions[:this]
+  %dt Latest Version
+  %dd= versions[:latest]
+  %dt Previous Version
+  %dd= versions[:previous]
+  
+  %dt Published
+  %dd= @version
+
+  %dt Authors of this document
+  - for author in @authors
+    %dd= link_to_author(author)

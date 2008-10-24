@@ -1,0 +1,17 @@
+---
+  :prefix: po
+  :uri: http://purl.org/ontology/po/
+  :namespaces:
+    po: http://purl.org/ontology/po/
+    dc: http://purl.org/dc/elements/1.1/
+    dcterms: http://purl.org/dc/terms/
+    event: 'http://purl.org/NET/c4dm/event.owl#'
+    foaf: http://xmlns.com/foaf/0.1/
+    frbr: 'http://purl.org/vocab/frbr/core#'
+    geo: 'http://www.w3.org/2003/01/geo/wgs84_pos#'
+    mo: http://purl.org/ontology/mo/
+    owl: 'http://www.w3.org/2002/07/owl#'
+    skos: 'http://www.w3.org/2004/02/skos/core#'
+    tags: 'http://www.holygoat.co.uk/owl/redwood/0.1/tags/'
+    tl: 'http://purl.org/NET/c4dm/timeline.owl#'
+    vs: 'http://www.w3.org/2003/06/sw-vocab-status/ns#'

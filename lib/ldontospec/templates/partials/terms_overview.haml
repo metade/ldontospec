@@ -1,0 +1,14 @@
+%h2 Overview of terms
+
+%p An alphabetical index of the ontology terms, divided into classes, properties and individuals. All the terms are hyperlinked to their detailed description for quick reference.
+
+#glance
+  %p Classes:
+  %ul
+    - for c in @ontology.classes.sort
+      %li= link_to c.localname, "##{c.localname}"
+
+  %p Properties:
+  %ul
+    - for p in @ontology.properties.sort
+      %li= link_to p.localname, "##{p.localname}"
